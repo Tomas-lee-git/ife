@@ -1,0 +1,146 @@
+
+body{
+	background-color: #f6f6f6;
+	font-size: 14px;
+}
+.header{
+	height: 50px;
+	background-color: #000;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.header img{
+	float: left;
+	width: 100px;
+	height: 50px;
+}
+.header ul{
+	height: 100%;
+	float: right;
+	margin: 0;
+	margin-right: 40px;
+	padding: 0;
+}
+.header ul li{
+	list-style:none;
+	float: left;
+	height: 100%;
+	line-height:50px;
+	padding-left: 10px;
+}
+.header ul li a{
+	display: inline-block;
+	height: 100%;
+	text-decoration:none;
+	color:#fff;
+}
+p{
+	text-indent:2em;
+}
+h4{
+	color:gray;
+}
+.one{
+	background-color: #fff;
+	margin: 20px;
+	padding: 10px;
+}
+
+.two{
+	width: 450px;
+	height: 550px;
+	border: 1px solid #e6e6e6;
+	text-align:center;
+	margin-bottom: 20px;
+}
+.two p{
+	/*width: 50%;
+	margin: 20px auto 0 auto;*/
+	display:inline-block;
+	margin-bottom:0;
+}
+.two img{
+	width: 392px;	
+	height: 498px;
+}
+
+.title .square{
+	display:inline-block;
+	width: 2px;
+	height: 30px;
+	background-color: #ccc;
+	float: left;
+	margin:-4px 5px 0;
+
+}
+.bold{
+	font-weight:bold;
+}
+.black{
+	background-color: #000;
+	color:#fff;
+}
+
+#tab{
+	width: 100%;
+	border-collapse:collapse;
+	/*表格单元格合并*/
+}
+#tab td{
+	border: 1px solid #e6e6e6;
+}
+.bgcgray{
+	background-color:#e6e6e6;
+}
+.lbd{
+	border-left:0px;
+}
+.rbd{
+	border-right: 0px;
+}
+.cgray{
+	color:#e6e6e6;
+	
+}
+.infor{
+	display:block;
+	width: 50%;
+	margin: 0 auto;
+}
+.infor .tar{
+	text-align: right;
+}
+.infor .tal{
+	text-align: left;
+}
+td{
+	margin: 20px 0;
+}
+textarea{
+	border: 1px solid #e6e6e6;
+	overflow:hidden;
+}
+#align{
+	vertical-align:top;
+}
+
+#sub{
+	width: 100%;
+	height: 30px;
+	line-height:30px;
+	border-radius:5px;
+	background-color:#2d78f4;
+	color:#fff;
+	text-align:center;
+	margin:20px 0;
+	border:0;
+}
+.footer{
+	height: 50px;
+	background-color: #000;
+	text-align:center;
+}
+.footer p{
+	color:#fff;
+	display:inline-block;
+}
