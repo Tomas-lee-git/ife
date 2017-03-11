@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>taskFour</title>
+	<style>
+	/*样式简单,就直接写在这里了*/
+	li{
+		width: 80px;
+		height: 80px;
+		text-align:center;
+		line-height:80px;
+		background-color: #f00;
+		color:#fff;
+		font-size:30px;
+		float: left;
+		list-style:none;
+		margin: 10px;
+	}
+	</style>
+</head>
+<body>
+	<div class="input">
+		<input type="number" id="inputNum"><!-- H5标签,数字输入框 -->
+		<input type="button" value="左侧入" id="leftAdd">&nbsp;
+		<input type="button" value="右侧入" id="rightAdd">&nbsp;&nbsp;
+		<input type="button" value="左侧出" id="leftDel">&nbsp;
+		<input type="button" value="右侧出" id="rightDel">
+	</div>
+	<div class="show">
+		<ul id="list"></ul>
+	</div>
+	<script>
+		window.onload=function(){//js入口函数
+			//获取相应的DOM元素
+			var inputNum=document.getElementById("inputNum")	;
+			var leftAdd=document.getElementById("leftAdd");
+			var rightAdd=document.getElementById("rightAdd")	;
+			var leftDel=document.getElementById("leftDel");
+			var rightDel=document.getElementById("rightDel")	;
+			var list=document.getElementById('list');
+			//声明一个数组作为增删平台,	后面以此为基础进行页面渲染
+			var arr=[];
+	
+			//对输入的内容进行判断,提示用户只能输入数字
+			inputNum.addEventListener('keyup',()=>{//	添加键盘弹起事件
+				if(/\D/g.test(inputNum.value)){//	利用正则"非数字"进行判断
+					//alert("请您确保输入数字");采用了数字输	入框,该行代码已无执行机会
+					inputNum.value='';
+				}
+			})
+		//动态生成li标签,配合后面的数组方法改变
+			function showNum(){
+				list.innerHTML="";//确保每一次渲染页面时ul里只有一个li标签
+				arr.forEach((item)=>{
+					if(item===""){
+						return;
+					}
+					var li=document.createElement('li');
+					li.innerHTML=item;
+					list.appendChild(li)
+				})
+			}	
+			
+			//左侧加入,前面追加方法unshift
+			leftAdd.addEventListener('click',()=>{
+				arr.unshift(inputNum.value);
+				showNum();
+				inputNum.value="";
+			})
+	
+			//右侧加入,前面追加方法push
+			rightAdd.addEventListener('click',()=>{
+				arr.push(inputNum.value);
+				showNum();
+				inputNum.value="";
+			})
+	
+	
+			//左侧删除,前面删除方法shift
+			leftDel.addEventListener('click',()=>{
+				arr.shift(inputNum.value);
+				showNum();
+				inputNum.value="";
+			})
+	
+	
+			//右侧删除,后面删除方法shift
+			rightDel.addEventListener('click',()=>{
+				arr.pop(inputNum.value);
+				showNum();
+				inputNum.value="";
+			})
+	
+	
+			
+		}
+		
+	</script>
+</body>
+</html>
