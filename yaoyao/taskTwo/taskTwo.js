@@ -1,38 +1,38 @@
 var username=document.getElementById("username"),
-		password=document.getElementById("password"),
-		confirm=document.getElementById("confirm"),
-		email=document.getElementById("email"),
-		phone=document.getElementById("phone"),
-		btn=document.getElementById("btn"),
-		span=document.getElementsByTagName("span");
+	password=document.getElementById("password"),
+	confirm=document.getElementById("confirm"),
+	email=document.getElementById("email"),
+	phone=document.getElementById("phone"),
+	btn=document.getElementById("btn"),
+	span=document.getElementsByTagName("span");
 
-		username.onfocus=username_onfocus;
-		username.onblur=username_onblur;
-		password.onfocus=password_onfocus;
-		password.onblur=password_onblur;
-		confirm.onfocus=confirm_onfocus;
-		confirm.onblur=confirm_onblur;
-		email.onfocus=email_onfocus;
-		email.onblur=email_onblur;
-		phone.onfocus=phone_onfocus;
-		phone.onblur=phone_onblur;
+	username.onfocus=username_onfocus;
+	username.onblur=username_onblur;
+	password.onfocus=password_onfocus;
+	password.onblur=password_onblur;
+	confirm.onfocus=confirm_onfocus;
+	confirm.onblur=confirm_onblur;
+	email.onfocus=email_onfocus;
+	email.onblur=email_onblur;
+	phone.onfocus=phone_onfocus;
+	phone.onblur=phone_onblur;
 
-		// 提交按钮
-		btn.onclick=function(){
-			var a1=username_onblur(),
-				b1=password_onblur(),
-				c1=confirm_onblur(),
-				d1=email_onblur(),
-				e1=phone_onblur();
+	// 提交按钮
+	btn.onclick=function(){
+		var a1=username_onblur(),
+			b1=password_onblur(),
+			c1=confirm_onblur(),
+			d1=email_onblur(),
+			e1=phone_onblur();
 
-			if(a1&&b1&&c1&&d1&&e1){
-				alert("提交成功");
-				window.location.reload();
-			}else{
-				alert("提交失败");				
-			}
-
+		if(a1&&b1&&c1&&d1&&e1){
+			alert("提交成功");
+			window.location.reload();//页面重新载入
+		}else{
+			alert("提交失败,请您按照要求核对");				
 		}
+
+	}
 
 		// 计算长度函数
 		function countLength(str){
@@ -48,7 +48,7 @@ var username=document.getElementById("username"),
 			return inputLength;
 		}
 
-		// 名称框失焦聚焦
+		// 名称框聚焦失焦
 		function username_onfocus(){
 			this.className="";
 			span[0].style.color="#ccc";
@@ -74,7 +74,7 @@ var username=document.getElementById("username"),
 				return false;
 			}
 		}
-		// 密码框失焦聚焦
+		// 密码框聚焦失焦
 		function password_onfocus(){
 			this.className="";
 			span[1].style.color="#ccc";
@@ -82,6 +82,9 @@ var username=document.getElementById("username"),
 		}
 		function password_onblur(){
 			var inputValue=password.value.trim();
+			//trim方法作为字符串的方法,会删除字符串两端的空格,
+			//相关的还有trimRight()和trimLeft()方法
+			//用正则实现的对应方法为 /(^\s*)|(\s*$)/g,/(^\s*)/g,/(\s$)/g
 			if(inputValue.length<6){
 				span[1].innerHTML="密码长度不够";
 				span[1].style.color="red";
@@ -94,15 +97,15 @@ var username=document.getElementById("username"),
 				return true;
 			}
 		}
-		// 密码确认框失焦聚焦
+		// 密码确认框聚焦失焦
 		function confirm_onfocus(){
 			this.className="";
 			span[2].style.color="#ccc";
-			span[2].innerHTML="请再次输入";
+			span[2].innerHTML="请确认密码";
 		}
 		function confirm_onblur(){
 			if(confirm.value==""||confirm.value==null){
-				span[2].innerHTML="请再次输入";
+				span[2].innerHTML="请确认密码";
 				span[2].style.color="red";
 				this.className="warn";
 				return false;
@@ -118,9 +121,9 @@ var username=document.getElementById("username"),
 				return false;
 			}
 		}
-		// 邮箱输入框失焦聚焦
+		// 邮箱输入框聚焦失焦
 		function email_onfocus(){
-			span[3].innerHTML="";
+			span[3].innerHTML="如:1041579493@qq.com";
 			this.className="";
 			span[3].style.color="#ccc";
 		}
@@ -139,7 +142,7 @@ var username=document.getElementById("username"),
 				return false;
 			}
 		}
-		// 手机输入框失焦聚焦
+		// 手机输入框聚焦失焦
 		function phone_onfocus(){
 			span[4].innerHTML="";
 			this.className="";

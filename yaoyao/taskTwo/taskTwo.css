@@ -12,12 +12,12 @@
 		form{
 			width: 578px;
 			margin:10vh auto;
+			/*vh CSS3新属性,相对于视口的高度,视口被均分为100单位的vh,相对应的为vw*/
 			font-family: "微软雅黑";
 			font-size: 14px;
 		}
 
 		div{
-			width: 578px;
 			margin-bottom: 15px;
 			line-height: 36px;
 		}
@@ -41,7 +41,7 @@
 			background-color: #2f79ba;
 			color: #fff;
 			font-size: 14px;
-			font-family: "微软雅黑";
+			font-family: "Microsoft Yahei";
 			border-radius: 5px;
 			float: right;
 		}
