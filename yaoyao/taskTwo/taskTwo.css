@@ -1,0 +1,55 @@
+		*{
+			padding: 0;
+			margin:0;
+		}
+
+		.clr:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		form{
+			width: 578px;
+			margin:10vh auto;
+			font-family: "微软雅黑";
+			font-size: 14px;
+		}
+
+		div{
+			width: 578px;
+			margin-bottom: 15px;
+			line-height: 36px;
+		}
+		input{
+			width: 500px;
+			height: 36px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-left: 15px;
+			float: right;
+		}
+		span{
+			display: block;
+			font-size: 12px;
+			margin-left: 78px;
+		}
+
+		#btn{
+			width: 80px;
+			height: 40px;
+			background-color: #2f79ba;
+			color: #fff;
+			font-size: 14px;
+			font-family: "微软雅黑";
+			border-radius: 5px;
+			float: right;
+		}
+
+		.warn{
+			border-color: #de0012;
+		}
+
+		.col{
+			border-color:#5ebb46;
+		}
