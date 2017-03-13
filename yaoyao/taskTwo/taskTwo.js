@@ -131,12 +131,17 @@ window.onload=function(){
 		function email_onblur(){
 			inputValue=email.value;
 			var reg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-]{2,3}){1,2}$/;
+			if(email.value==""||email.value==null){
+				span[2].innerHTML="请输入邮箱";
+				span[2].style.color="red";
+				this.className="warn";
+				return false;
 			if(reg.test(inputValue)){
 				span[3].innerHTML="邮箱格式正确";
 				span[3].style.color="green";
 				this.className="col";
 				return true;
-			}else{
+			}else {
 				span[3].innerHTML="邮箱格式错误";
 				span[3].style.color="red";
 				this.className="warn";
