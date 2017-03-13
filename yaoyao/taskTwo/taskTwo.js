@@ -1,4 +1,5 @@
-var username=document.getElementById("username"),
+window.onload=function(){
+	var username=document.getElementById("username"),
 	password=document.getElementById("password"),
 	confirm=document.getElementById("confirm"),
 	email=document.getElementById("email"),
@@ -163,3 +164,4 @@ var username=document.getElementById("username"),
 				return false;
 			}
 		}
+}
