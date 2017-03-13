@@ -1,10 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>taskThree</title>
+    <meta charset="UTF-8">
+    <title>taskThree</title>
+    <link rel="stylesheet" href="taskThree.css">
 </head>
 <body>
-	d
+    <form>
+        <ul>
+            <li class="form-item radio">
+                <label><input type="radio" name="chose"><span></span>在校生</label>
+                <label><input type="radio" name="chose"><span></span>非在校生</label>
+            </li>
+            <li class="form-item select">
+                <label>
+                    学校
+                    <select name="city">              
+                    </select>
+                    <select name="school">         
+                    </select>
+                </label>
+            </li>
+            <li class="form-item text">
+                <label>就业单位<input type="text"></label>
+            </li>
+        </ul>
+    </form>
+
+    <script src="./taskThree.js"></script>
 </body>
 </html>
