@@ -1,32 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<title>taskSix</title>
-	<style>
-	/*样式简单,就直接写在这里了*/
-	.input{
-		vertical-align:top;
-	}
+	<style type="text/css">
+		.wrapper{
+			width: 600px;
+			margin: 100px auto;
+		}
+		ul{
+			list-style: none;
+			padding: 0;
+		}
+		li{
+			cursor: pointer;
+			float: left;
+			margin-left: 15px;
+			padding: 5px;
+			color: white;
+			border-radius: 5px;
+			text-align: center;
+			background-color: darkred;
+		}
+		li:first-child{
+			margin-left: 0;
+		}
+		.input-value{
+			margin-top: 20px;
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 100%;
+			padding: 0;
+		}
+		#query-key{
+			box-sizing: border-box;
+			width: 80%;
+		}
+		#query-btn{
+			width: 20%;
+		}
+		.find{
+			color:red;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body>
-	<div class="input">
-		<input type="text" placeholder="请输入查询内容" id="serch">
-		<input type="button" value="查询" id=sbtn>
-		<textarea name="txa" id="txa" cols="30" rows="10"></textarea>
-	</div>
-	<script>
-		window.onload=function(){
-
-
-
-
-
-
-
-
+<div class="wrapper">
+	<input type="text" id="query-key" value="ab"><button id="query-btn">查询</button>
+		<textarea name="" id="input-value" cols="30" rows="10" class="input-value">&nbsp;&nbsp;Sometimes life hits you in the head with a brick. Don't lose faith. I'm convinced that the only thing that kept me going was that I loved what I did.
+&nbsp;&nbsp;有些时候, 生活会拿起一块砖头向你的脑袋上猛拍一下。不要失去信心。我很清楚唯一使我一直走下去的，就是我做的事情令我无比钟爱。
+		</textarea>
+	<h4>Result：</h4><p class="input-value" id="out-wrapper"></p>
+</div>
+<script type="text/javascript">
+	//封装函数获取DOM元素
+	function getElementById(id){
+		return document.getElementById(id);
+	}
+	function queryByKey(){
+		var key = queryKey.value;
+		var content = inputValue.value;
+		var outText = '';
+		if(content && key){
+			outText = '';
+			//利用indexOf获取key在content中的位置
+			var subStr = content,subIndex=subStr.indexOf(key),keylen = key.length;
+			while(subIndex!=-1){
+				//模糊匹配
+				outText += subStr.substr(0,subIndex) + '<span class="find">' + key + '</span>';
+				subStr = subStr.substr(subIndex+keylen);
+				subIndex=subStr.indexOf(key);
+			}
+			outText += subStr;
 		}
-	</script>
+		outWrapper.innerHTML = outText;
+	}
+	var inputValue = null,queryKey = null;
+
+	window.onload = function(){
+		var eventTargets = [{
+			btn:getElementById('query-btn'),
+			call:queryByKey
+		}];
+		inputValue = getElementById('input-value');
+		queryKey = getElementById('query-key');
+		outWrapper = getElementById('out-wrapper');
+		//循环遍历
+		for(var i=0,len=eventTargets.length;i<len;i++){
+			(function(item){
+				addEventListener(item.btn,'click',function(){
+					item.call(item.param);
+				});
+			})(eventTargets[i]);
+		}
+	}
+
+	/**
+	 *	addEventListener	支持IE8+浏览器,事件名称前不用加on
+	 *	attachEvent			用于<=IE8 或 Opera 7.0 及 Opera事件处理，事件名称前要加on关键字
+	 */
+	function addEventListener(elm,etype,func){
+		if(elm){
+			if(elm.addEventListener){
+				elm.addEventListener(etype,func);
+			}else{
+				elm.attachEvent('on'+etype,func);
+			}
+		}
+	}
+	function removeEventListener(elm,etype,func){
+		if(elm){
+			if(elm.addEventListener){
+				elm.removeEventListener(etype,func);
+			}else{
+				elm.detachEvent('on'+etype,func);
+			}
+		}
+	}
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
