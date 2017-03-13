@@ -136,8 +136,7 @@ window.onload=function(){
 				span[3].style.color="red";
 				this.className="warn";
 				return false;
-			}
-			if(reg.test(inputValue)){
+			}else if(reg.test(inputValue)){
 				span[3].innerHTML="邮箱格式正确";
 				span[3].style.color="green";
 				this.className="col";
