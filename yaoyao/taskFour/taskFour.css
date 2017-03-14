@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+}
+#chessboard{
+    margin: 10px;
+}
+#block{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    background: #ff5b5b;
+}
+#mark{
+    position: absolute;
+    width: 50px;
+    height: 15px;
+    background: #825ce9;
+}
+form{
+    margin-left: 30px;
+}
+input, button{
+    margin: 0 5px;
+}
+button{
+    padding: 3px 6px;
+    border-radius: 3px;
+    color: #5f68ff;
+    background: #ffffff;
+    border: #5f68ff solid 2px;
+    cursor: pointer;
+    transition: background 1s;
+    transition: color 0.3s;
+}
+button:hover{
+    background: #5f68ff;
+    color: #ffffff;
+}
