@@ -1,0 +1,39 @@
+table{
+    background: #fff;
+    color: #000;
+    border-collapse: collapse;
+    text-align: center;
+ }
+ th, td{
+    padding: 5px 25px;
+    border: 2px solid #000;
+ }
+ th{
+    background: #456;
+    color: #fff;
+    border-right-color: #000;
+ }
+ .sort{
+    cursor: pointer;
+    transition: background 1s;
+ }
+ .sort:hover{
+    background: teal;
+ }
+ .icon-sort{
+    display: inline-block;
+    margin-left: 10px;
+ }
+ .triangle-up, .triangle-down{
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;   
+ }
+ .triangle-up{
+    border-bottom: 6px solid #fff;
+    margin-bottom: 3px;
+ }
+ .triangle-down{
+    border-top: 6px solid #fff;
+ }
