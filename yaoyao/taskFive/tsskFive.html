@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>taskFive</title>
+    <link rel="stylesheet" href="./taskFive.css">
+</head>
+<body>
+    <canvas id="chessboard" width="550" height="550"></canvas>
+    <div id="block"><div id="mark"></div></div>
+    <form action="">
+        <select id="command" autofocus>
+            <option value="GO">GO</option>
+            <option value="TUN LEF">TUN LEF</option>
+            <option value="TUN RIG">TUN RIG</option>
+            <option value="TUN BAC">TUN BAC</option>
+            <option value="TRA LEF">TRA LEF</option>
+            <option value="TRA TOP">TRA TOP</option>
+            <option value="TRA RIG">TRA RIG</option>
+            <option value="TRA BOT">TRA BOT</option>
+            <option value="MOVLEF">MOVLEF</option>
+            <option value="MOV TOP">MOV TOP</option>
+            <option value="MOV RIG">MOV RIG</option>
+            <option value="MOV BOT">MOV BOT</option>
+         <select>
+        <!-- autofocus,自动获取焦点 -->
+        <button type="button" id="execute">执行</button>
+    </form>
+    <ul>
+        <li id="order">指令:</li>
+        <li>GO:向蓝色边所面向的方向前进一格 </li>
+        <li>TUN LEF：向左转（逆时针旋转90度）</li>
+        <li>TUN RIG：向右转（顺时针旋转90度）</li>
+        <li>TUN BAC：向右转（旋转180度）</li>
+        <li>TRA LEF：向屏幕的左侧移动一格，方向不变</li>
+        <li>TRA TOP：向屏幕的上面移动一格，方向不变</li>
+        <li>TRA RIG：向屏幕的右侧移动一格，方向不变</li>
+        <li>TRA BOT：向屏幕的下面移动一格，方向不变</li>
+        <li>MOVLEF： 方向转向屏幕左侧，并向屏幕的左侧移动一格</li>
+        <li>MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格</li>
+        <li>MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格</li>
+        <li>MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格</li>
+    </ul>
+    <script src="./taskFive.js"></script>
+</body>
+</html>

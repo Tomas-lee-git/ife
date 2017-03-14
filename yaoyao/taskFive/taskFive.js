@@ -58,7 +58,7 @@ var block = function () {
     };
     
     var changeDirection = function (newDirection) {
-        //修复旋转方向
+        //旋转方向
         var fix = function () {
             domObject.style.transition = 'left 1s, top 1s';     //去除旋转过渡动画
             domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';        //修复旋转角度
@@ -69,7 +69,7 @@ var block = function () {
 
         domObject.style.transform = 'rotate(' + newDirection * 90 + 'deg)';
 
-        //修复旋转角度
+        //旋转角度
         setTimeout(function () {
             if (newDirection < 0) {
                 direction = newDirection + 4;
