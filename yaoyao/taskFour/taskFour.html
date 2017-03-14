@@ -13,9 +13,21 @@
     <canvas id="chessboard" width="550" height="550"></canvas>
     <div id="block"><div id="mark"></div></div>
     <form action="">
-        <input type="text" style="display: none">
-        <input type="text" id="command" autofocus><button type="button" id="execute">执行</button>
+        <input type="text" id="command" autofocus>
+        <!-- autofocus,自动获取焦点 -->
+        <button type="button" id="execute">执行</button>
     </form>
+    <ul>
+        指令:
+        <li> GO：向蓝色边所面向的方向前进一格
+        </li>
+        <li>TUN LEF：向左转（逆时针旋转90度）</li>
+        <li>TUN RIG：向右转（顺时针旋转90度）</li>
+        <li>TUN BAC：向右转（旋转180度）</li>
+
+
+
+    </ul>
     <script src="./taskFour.js"></script>
 </body>
 </html>

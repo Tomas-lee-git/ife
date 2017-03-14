@@ -27,14 +27,17 @@ input, button{
 button{
     padding: 3px 6px;
     border-radius: 3px;
-    color: #5f68ff;
-    background: #ffffff;
-    border: #5f68ff solid 2px;
+    color: teal;
+    background: #fff;
+    border: teal solid 2px;
     cursor: pointer;
     transition: background 1s;
     transition: color 0.3s;
 }
 button:hover{
-    background: #5f68ff;
-    color: #ffffff;
+    background: teal;
+    color: #fff;
+}
+li{
+    list-style:none;
 }

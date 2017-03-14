@@ -1,25 +1,21 @@
-/**
- * Created by 10399 on 2017/2/27.
- */
-
 //简写 querySelector 函数
-var $ = function (selector) {
+var $=function(selector){
     return document.querySelector(selector);
-};
+}
 
 //渲染棋盘
 var renderChessBoard = function () {
-    var chessboard = document.querySelector('#chessboard');
+    var chessboard = $('#chessboard');
 
     if (chessboard.getContext) {
         var context = chessboard.getContext('2d');
-        context.strokeStyle = '#000000';
+        context.strokeStyle = 'teal';
         //画棋盘区域
         context.strokeRect(30, 30, 500, 500);
-
-        context.font = '20px Arial';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
+        //设置文字属性
+        context.font = '20px Arial';// 字体
+        context.textAlign = 'center';// 水平对齐方式
+        context.textBaseline = 'middle';//垂直对齐方式
         //移动中心点至棋盘左上角
         context.translate(30, 30);
         for (var i = 1; i <= 10; i++) {
@@ -30,17 +26,17 @@ var renderChessBoard = function () {
             context.moveTo(50 * i, 0);
             context.lineTo(50 * i, 500);
             //显示横纵坐标
-            context.fillText(i, -20, 25 + (i - 1) * 50);
-            context.fillText(i, 25 + (i - 1) * 50, -20);
-        }
-        //描边路径
-        context.stroke();
+            context.fillText(i, -20, 50*i-25);
+            context.fillText(i, 50*i-25, -20);         
     }
+        }
+        //描边
+        context.stroke();
 };
 
 //方块对象
 var block = function () {
-    var domObject = $('#block');        //保存方块对象
+    var block = $('#block');//保存方块对象
     var posX =  1;      //方块的 X 坐标
     var posY =  1;      //方块的 Y 坐标
     var direction =  0;    //面朝方向，0~3 分别代表上下左右
@@ -52,11 +48,11 @@ var block = function () {
         if (newPosX >= 1 && newPosX <= 10 && newPosY >= 1 && newPosY <= 10) {
             posX = newPosX;
             posY = newPosY;
-            domObject.style.left = (newPosX * 50 - 10) + 'px';
-            domObject.style.top = (newPosY * 50 - 10) + 'px';
+            block.style.left = (newPosX * 50 - 10) + 'px';
+            block.style.top = (newPosY * 50 - 10) + 'px';
         }
         else {
-            alert('超出棋盘区域！');
+            alert('已撞南墙请回头,浪子回头金不换!');
         }
     };
 
@@ -68,10 +64,10 @@ var block = function () {
         if (direction > 3) {
             direction -= 4;
         }
-        domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';
+        block.style.transform = 'rotate(' + direction * 90 + 'deg)';
     };
 
-    //只暴露命令对象，隐藏内部属性和方法
+    //返回命令对象集合，包含内部属性和方法
     return {
         'GO': function () {
             switch (direction) {
@@ -95,11 +91,11 @@ var block = function () {
 
 //“执行”命令
 var execute = function (command) {
-    if (block[command]) {
+    if (block[command]) {//如果命令存在,执行相应命令
         block[command]();
     }
     else {
-        alert('请输入正确的指令');
+        alert('将在外君命有所不受');
     }
 };
 
@@ -116,6 +112,7 @@ var init = function () {
     //给输入框绑定按键事件，按下回车键和小键盘上的回车键时执行
     $('#command').onkeydown = function (event) {
         if (event.keyCode == 13 || event.keyCode == 108) {
+            //大键盘和数字键盘的Enter键
             execute(this.value);
         }
     };
